@@ -1,6 +1,6 @@
 // Extracted directly from Tribin GPS Coordinates.pdf.
 
-const bins = [
+window.bins = [
   {
     "id": 2,
     "location": "Modoc Hall Back Door",
