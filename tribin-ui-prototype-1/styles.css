@@ -31,6 +31,7 @@ header span {
 
 main {
   height: calc(100vh - 64px);
+  min-height: 500px;
   padding: 14px;
   display: grid;
   grid-template-columns: 1fr 330px;
@@ -49,11 +50,8 @@ main {
 #campusPlot {
   position: absolute;
   inset: 35px;
-  background-color: #f5f2df;
-  background-image:
-    linear-gradient(#d6ddce 1px, transparent 1px),
-    linear-gradient(90deg, #d6ddce 1px, transparent 1px);
-  background-size: 40px 40px;
+  overflow: hidden;
+  background: #e8eee5;
   border: 2px solid #8fa38f;
   border-radius: 6px;
 }
@@ -62,6 +60,7 @@ main {
   position: absolute;
   top: 10px;
   left: 50%;
+  z-index: 2;
   color: #596b5d;
   font-size: 0.7rem;
   font-weight: bold;
@@ -72,28 +71,29 @@ main {
   position: absolute;
   right: 42px;
   bottom: 10px;
+  z-index: 2;
   margin: 0;
   color: #596b5d;
   font-size: 0.7rem;
+  pointer-events: none;
 }
 
-.bin-point {
-  width: 11px;
-  height: 11px;
-  padding: 0;
-  position: absolute;
-  background: #087f5b;
-  border: 2px solid white;
-  border-radius: 50%;
-  box-shadow: 0 1px 4px #555555;
-  transform: translate(-50%, -50%);
+.map-message {
+  height: 100%;
+  padding: 30px;
+  color: #596b5d;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 
-.bin-point:hover,
-.bin-point.selected {
-  z-index: 2;
-  background: #c69214;
-  transform: translate(-50%, -50%) scale(1.7);
+.leaflet-container {
+  font-family: Arial, sans-serif;
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px;
+  font-size: 0.8rem;
 }
 
 aside {
@@ -133,11 +133,17 @@ input {
   width: 100%;
   margin-bottom: 7px;
   padding: 9px;
+  color: #1e2924;
   text-align: left;
   background: #f7f7f7;
   border: 1px solid #dddddd;
   border-left: 5px solid #087f5b;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.bin-card:hover {
+  background: #edf6f1;
 }
 
 .bin-card span {
