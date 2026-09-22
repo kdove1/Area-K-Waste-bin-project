@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #1e2924;
+  background: #eef2ee;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  height: 64px;
+  padding: 0 20px;
+  color: white;
+  background: #043927;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+header span {
+  color: #c4b581;
+  font-weight: bold;
+}
+
+main {
+  height: calc(100vh - 64px);
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 14px;
+}
+
+.location-panel {
+  min-height: 450px;
+  position: relative;
+  overflow: hidden;
+  background: #e4ecdf;
+  border: 1px solid #bbc8bb;
+  border-radius: 8px;
+}
+
+#campusPlot {
+  position: absolute;
+  inset: 35px;
+  background-color: #f5f2df;
+  background-image:
+    linear-gradient(#d6ddce 1px, transparent 1px),
+    linear-gradient(90deg, #d6ddce 1px, transparent 1px);
+  background-size: 40px 40px;
+  border: 2px solid #8fa38f;
+  border-radius: 6px;
+}
+
+.plot-label {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  color: #596b5d;
+  font-size: 0.7rem;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+.plot-note {
+  position: absolute;
+  right: 42px;
+  bottom: 10px;
+  margin: 0;
+  color: #596b5d;
+  font-size: 0.7rem;
+}
+
+.bin-point {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  position: absolute;
+  background: #087f5b;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #555555;
+  transform: translate(-50%, -50%);
+}
+
+.bin-point:hover,
+.bin-point.selected {
+  z-index: 2;
+  background: #c69214;
+  transform: translate(-50%, -50%) scale(1.7);
+}
+
+aside {
+  padding: 18px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+}
+
+#count {
+  color: #666666;
+  font-size: 0.85rem;
+}
+
+.selected-bin {
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #edf6f1;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.bin-card {
+  width: 100%;
+  margin-bottom: 7px;
+  padding: 9px;
+  text-align: left;
+  background: #f7f7f7;
+  border: 1px solid #dddddd;
+  border-left: 5px solid #087f5b;
+  border-radius: 4px;
+}
+
+.bin-card span {
+  margin-top: 3px;
+  color: #666666;
+  display: block;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 700px) {
+  main {
+    height: auto;
+    display: block;
+  }
+
+  .location-panel {
+    height: 55vh;
+    margin-bottom: 12px;
+  }
+}
