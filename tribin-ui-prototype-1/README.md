@@ -2,8 +2,7 @@
 
 It runs locally with only HTML, CSS, and JavaScript. The position panel converts
 the real longitude and latitude values from `bins.js` into relative screen
-positions. This preserves the general relationship between bin locations without
-loading an online map.
+positions. 
 
 The project contains:
 
@@ -11,7 +10,6 @@ The project contains:
 - Search by bin number or location
 - Clickable coordinate points
 - A sidebar containing every bin
-- No simulated bins, fullness readings, or sensor data
 
 Open `index.html` directly or use VS Code Live Server extension to launch `index.html` with Live Server.
 
