@@ -3,32 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tribin UI - Prototype 1</title>
+    <title>Sacramento State Tri-bin Locations</title>
+
+    <!-- Leaflet is used only to place the GPS points on the campus map. -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <header>
-      <h1>Campus Tribin Locations</h1>
+      <h1>Campus Tri-bin Locations</h1>
       <span>Prototype 1</span>
     </header>
 
     <main>
       <section class="location-panel">
-        <div class="plot-label">NORTH</div>
-        <div id="campusPlot" aria-label="Relative campus bin locations"></div>
-        <p class="plot-note">Relative positions based on the PDF coordinates</p>
+        <div class="plot-label">SACRAMENTO STATE CAMPUS</div>
+        <div id="campusPlot" aria-label="Sacramento State campus map"></div>
+        <p id="mapStatus" class="plot-note">Loading campus map...</p>
       </section>
 
       <aside>
         <h2>Bins</h2>
-        <input id="search" type="search" placeholder="Search bin number or location" />
+        <input
+          id="search"
+          type="search"
+          placeholder="Search bin number or location"
+        />
         <p id="count"></p>
         <div id="selectedBin" class="selected-bin">Select a point or bin</div>
         <div id="binList"></div>
       </aside>
     </main>
 
-    <script src="bins.js"></script>
-    <script src="app.js"></script>
+    <!-- Local data must load before the application. -->
+    <script src="bins.js" defer></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      defer
+    ></script>
+    <script src="app.js" defer></script>
   </body>
 </html>
