@@ -14,7 +14,17 @@ const markers = new Map();
 
 // Initialize Leaflet only when its CDN script loaded successfully.
 if (typeof L !== "undefined" && binData.length > 0) {
-  campusMap = L.map("campusPlot").setView([38.5615, -121.4235], 16);
+  // Sacramento State campus boundaries
+  const sacramentoStateBounds = L.latLngBounds(
+    [38.552, -121.431], // Southwest corner
+    [38.569, -121.416]  // Northeast corner
+  );
+
+  campusMap = L.map("campusPlot", {
+    minZoom: 15,
+    maxBounds: sacramentoStateBounds,
+    maxBoundsViscosity: 1.0
+  }).setView([38.5615, -121.4235], 16);
 
   L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
