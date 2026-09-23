@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sacramento State Tri-bin Locations</title>
+
+    <!-- Leaflet is used only to place the GPS points on the campus map. -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="styles(1).css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Campus Tri-bin Locations</h1>
+      <span>Prototype 1</span>
+    </header>
+
+    <main>
+      <section class="location-panel">
+        <div class="plot-label">SACRAMENTO STATE CAMPUS</div>
+        <div id="campusPlot" aria-label="Sacramento State campus map"></div>
+        <p id="mapStatus" class="plot-note">Loading campus map...</p>
+      </section>
+
+      <aside>
+        <h2>Bins</h2>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search bin number or location"
+        />
+        <label for="fullnessFilter">Filter by fullness:</label> 
+
+
+    <select id ="fullnessFilter">
+      <option value="all">All bins</option>
+      <option value="green">0-49% full</option>
+      <option value="yellow">50-79% full</option>
+      <option value="red">80-100% full</option>
+    </select>
+        
+        <p id="count"></p>
+        <div id="selectedBin" class="selected-bin">Select a point or bin</div>
+        <div id="binList"></div>
+      </aside>
+    </main>
+
+    <!-- Local data must load before the application. -->
+    <script src="bins(1).js" defer></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      defer
+    ></script>
+    <script src="app(1).js" defer></script>
+  </body>
+</html>
