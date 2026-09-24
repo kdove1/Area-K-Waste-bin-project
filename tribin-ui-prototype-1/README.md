@@ -8,9 +8,10 @@ The project contains:
 
 - 203 actual bin records from the supplied PDF
 - Search by bin number or location
-- Clickable coordinate points
+- Clickable color coded coordinate points
 - A sidebar containing every bin
 - A map boundary that keeps the view around Sacramento State
+- Simulated fullness
 
 Files
 - index.html - Page structure
