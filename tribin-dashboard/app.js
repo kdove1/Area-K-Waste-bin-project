@@ -6,8 +6,8 @@ const UPDATE_EVERY_SECONDS = 3;
 const SAVE_KEY = "tribin-simple-v1";
 
 const COMPARTMENTS = [
+  { key: "recycling", label: "Recycle" },
   { key: "landfill", label: "Landfill" },
-  { key: "recycling", label: "Recycling" },
   { key: "compost", label: "Compost" },
 ];
 
@@ -66,6 +66,17 @@ function loadData() {
     if (saved && saved.levels && saved.workers) {
       // Data saved before sensors were tracked gets a sensor status now.
       if (!("online" in Object.values(saved.levels)[0])) seedSensorStatus(saved.levels);
+      // Data saved with the old compartment names gets the new names.
+      Object.values(saved.levels).forEach((level) => {
+        if ("trash" in level) {
+          level.landfill = level.trash;
+          level.recycling = level.recycle;
+          level.compost = level.aluminum;
+          delete level.trash;
+          delete level.recycle;
+          delete level.aluminum;
+        }
+      });
       return saved;
     }
   } catch {
@@ -138,7 +149,7 @@ function readSensors() {
   });
 }
 
-// Ultrasonic sensors measure the distance down to the top of the landfill.
+// Ultrasonic sensors measure the distance down to the top of the trash.
 // Example: in a 90 cm deep bin, a reading of 30 cm means 67% full.
 function distanceToPercent(distanceCm, emptyDepthCm = 90) {
   const percent = ((emptyDepthCm - distanceCm) / emptyDepthCm) * 100;
